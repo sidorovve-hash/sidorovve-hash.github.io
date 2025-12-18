@@ -1,1 +1,756 @@
-<a href="https://github.com/sidorovve-hash/sidorovve-hash.github.io/new/main">пр</a>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>servak</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servak - Minecraft Сервер</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a3a, #0f1a24);
+            color: #e0e0e0;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: rgba(10, 20, 30, 0.7);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #2a4a6a;
+            box-shadow: 0 0 20px rgba(0, 100, 200, 0.3);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #4facfe;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+        }
+
+        .server-ip {
+            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 30px;
+            margin: 12px 0;
+            border: 1px solid #4facfe;
+            cursor: pointer;
+            transition: all 0.3s;
+            word-break: break-all;
+            max-width: 90%;
+        }
+
+        .server-ip:hover {
+            background: rgba(79, 172, 254, 0.2);
+            transform: scale(1.05);
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #88c0ff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tab-btn {
+            padding: 10px 15px;
+            background: rgba(20, 40, 60, 0.7);
+            border: none;
+            color: #a0d0ff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 1px solid #2a4a6a;
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .tab-btn:hover {
+            background: rgba(40, 80, 120, 0.7);
+            transform: translateY(-3px);
+        }
+
+        .tab-btn.active {
+            background: rgba(79, 172, 254, 0.3);
+            color: #4facfe;
+            border-color: #4facfe;
+            box-shadow: 0 0 15px rgba(79, 172, 254, 0.5);
+        }
+
+        .tab-content {
+            background: rgba(15, 30, 45, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            min-height: 300px;
+            border: 1px solid #2a4a6a;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: none;
+            position: relative;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h2 {
+            color: #4facfe;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #2a4a6a;
+            padding-bottom: 8px;
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.5;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .rules-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .rules-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(42, 74, 106, 0.5);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .rules-list li:hover {
+            background: rgba(79, 172, 254, 0.1);
+            padding-left: 30px;
+        }
+
+        .rules-list li:before {
+            content: "•";
+            color: #4facfe;
+            font-size: 1.3rem;
+            position: absolute;
+            left: 0;
+            top: 6px;
+        }
+
+        .rules-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-details {
+            display: none;
+            background: rgba(30, 60, 90, 0.6);
+            padding: 12px;
+            margin-top: 8px;
+            border-radius: 8px;
+            border-left: 4px solid #4facfe;
+            animation: slideDown 0.3s ease-out;
+            font-size: 0.9rem;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .rule-details.active {
+            display: block;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .staff-card {
+            background: rgba(30, 60, 90, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #3a6a9a;
+            transition: all 0.3s;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-color: #4facfe;
+        }
+
+        .staff-icon {
+            font-size: 2rem;
+            color: #4facfe;
+            margin-bottom: 12px;
+        }
+
+        .staff-name {
+            font-size: 1.2rem;
+            color: #4facfe;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .staff-nickname {
+            font-size: 1rem;
+            color: #88c0ff;
+            margin-bottom: 4px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+        }
+
+        .staff-role {
+            color: #a0d0ff;
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        .connection-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .connection-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .connection-card {
+            background: rgba(30, 60, 90, 0.6);
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #4facfe;
+            transition: all 0.3s;
+        }
+
+        .connection-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.3);
+        }
+
+        .connection-icon {
+            font-size: 2.5rem;
+            color: #4facfe;
+            margin-bottom: 15px;
+        }
+
+        .connection-title {
+            font-size: 1.3rem;
+            color: #4facfe;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .connection-details {
+            font-size: 1.1rem;
+            color: #88c0ff;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 8px;
+            word-break: break-all;
+            text-align: center;
+        }
+
+        .connection-label {
+            font-size: 0.9rem;
+            color: #a0d0ff;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        /* Стили для галереи */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            border: 2px solid #3a6a9a;
+            background: rgba(20, 40, 60, 0.6);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+            border-color: #4facfe;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .image-loading {
+            background: rgba(30, 60, 90, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            color: #88c0ff;
+            font-style: italic;
+        }
+
+        .gallery-caption {
+            padding: 12px;
+            text-align: center;
+            background: rgba(15, 30, 45, 0.8);
+            font-size: 0.9rem;
+            color: #a0d0ff;
+        }
+
+        /* Стили для видео */
+        .video-content {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .video-icon {
+            font-size: 4rem;
+            color: #4facfe;
+            margin-bottom: 20px;
+        }
+
+        .video-message {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #88c0ff;
+        }
+
+        .vk-channel {
+            background: rgba(79, 172, 254, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid #4facfe;
+            text-align: center;
+        }
+
+        .vk-icon {
+            font-size: 2rem;
+            color: #4facfe;
+            margin-bottom: 15px;
+        }
+
+        .vk-link {
+            display: inline-block;
+            background: rgba(79, 172, 254, 0.3);
+            color: #e0e0e0;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            transition: all 0.3s;
+            border: 1px solid #4facfe;
+        }
+
+        .vk-link:hover {
+            background: rgba(79, 172, 254, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* Стили для видео контейнера */
+        .video-container {
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border: 2px solid #4facfe;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-title {
+            color: #4facfe;
+            margin: 20px 0 10px;
+            font-size: 1.4rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            color: #88c0ff;
+            border-top: 1px solid #2a4a6a;
+        }
+
+        .copy-msg {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+            z-index: 1000;
+        }
+
+        .copy-msg.show {
+            opacity: 1;
+        }
+
+        /* Мобильная адаптация */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .server-ip {
+                font-size: 1rem;
+                padding: 6px 12px;
+            }
+            
+            .tab-btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+                min-width: 100px;
+            }
+            
+            .tab-content {
+                padding: 15px;
+                min-height: 250px;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            .connection-card {
+                padding: 15px;
+            }
+            
+            .connection-title {
+                font-size: 1.1rem;
+            }
+            
+            .connection-details {
+                font-size: 1rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .gallery-image {
+                height: 180px;
+            }
+            
+            .video-icon {
+                font-size: 3rem;
+            }
+            
+            .video-message {
+                font-size: 1rem;
+            }
+            
+            .video-container {
+                margin: 20px 0;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .connection-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .staff-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .server-ip {
+                font-size: 1.3rem;
+            }
+            
+            .tab-btn {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cube"></i> Servak</h1>
+            <div class="server-ip" id="server-ip">I_slav4ik_I.aternos.me</div>
+            <p class="subtitle">Присоединяйся к нашему увлекательному Minecraft сообществу!</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="about-tab">О сервере</button>
+            <button class="tab-btn" data-tab="rules-tab">Правила</button>
+            <button class="tab-btn" data-tab="staff-tab">Администрация</button>
+            <button class="tab-btn" data-tab="gallery-tab">Галерея</button>
+            <button class="tab-btn" data-tab="video-tab">Видео</button>
+            <button class="tab-btn" data-tab="connection-tab">IP и порт</button>
+        </div>
+
+        <div id="about-tab" class="tab-content active">
+            <h2>О нашем сервере</h2>
+            <p>Добро пожаловать на наш сервер! Мы предлагаем уникальный игровой опыт.</p>
+            <p><strong>Особенности сервера:</strong></p>
+            <ul class="rules-list">
+                <li>Выживание с элементами приключения</li>
+                <li>Экономика и магазины</li>
+                <li>Уникальные плагины</li>
+                <li>Дружелюбное сообщество</li>
+            </ul>
+        </div>
+
+        <div id="rules-tab" class="tab-content">
+            <h2>Правила Сервера</h2>
+            <p>Соблюдение этих правил обеспечивает комфортную игру для всех.</p>
+            <ul class="rules-list">
+                <li onclick="toggleRule(this)">
+                    Уважайте всех игроков
+                    <div class="rule-details">
+                        Оскорбления, расизм, сексизм и любая дискриминация запрещены.
+                    </div>
+                </li>
+                <li onclick="toggleRule(this)">
+                    Запрещен любой вид читерства
+                    <div class="rule-details">
+                        Использование читов, дюпа, багов игры строго запрещено.
+                    </div>
+                </li>
+                <li onclick="toggleRule(this)">
+                    Запрещено гриферство
+                    <div class="rule-details">
+                        Порча построек других игроков без разрешения карается баном.
+                    </div>
+                </li>
+                <li onclick="toggleRule(this)">
+                    Чат и общение
+                    <div class="rule-details">
+                        Не спамьте в чат. Реклама других проектов запрещена.
+                    </div>
+                </li>
+                <li onclick="toggleRule(this)">
+                    Никнейм и скин
+                    <div class="rule-details">
+                        Никнейм и скин не должны содержать оскорбительный контент.
+                    </div>
+                </li>
+                <li onclick="toggleRule(this)">
+                    Не бесить админа
+                    <div class="rule-details">
+                        Администрация здесь, чтобы помогать, не создавайте проблем.
+                    </div>
+                </li>
+                <li onclick="toggleRule(this)">
+                    Не трогать Деревню Сервера
+                    <div class="rule-details">
+                        Это наша общая достопримечательность.
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="staff-tab" class="tab-content">
+            <h2>Наша команда</h2>
+            <p>Наша администрация всегда готова помочь вам.</p>
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <div class="staff-icon"><i class="fas fa-crown"></i></div>
+                    <div class="staff-name">Вячеслав</div>
+                    <div class="staff-nickname">I_slav4ik_I</div>
+                    <div class="staff-role">Создатель</div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-icon"><i class="fas fa-hammer"></i></div>
+                    <div class="staff-name"></div>
+                    <div class="staff-nickname">prosto_cheliks</div>
+                    <div class="staff-role">Модератор</div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-icon"><i class="fas fa-hammer"></i></div>
+                    <div class="staff-name">Йорик</div>
+                    <div class="staff-nickname">kosmostar_way</div>
+                    <div class="staff-role">легенда серва</div>
+                </div>
+            </div>
+        </div> 
+        <div id="video-tab" class="tab-content">
+            <div class="video-content">
+                <div class="video-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h2>Пока тут пусто</h2>
+            </div>
+        </div>
+
+        <div id="connection-tab" class="tab-content">
+            <h2>Подключение к серверу</h2>
+            <p>Используйте следующие данные для подключения:</p>
+            
+            <div class="connection-grid">
+                <div class="connection-card">
+                    <div class="connection-icon"><i class="fas fa-desktop"></i></div>
+                    <div class="connection-title">Для ПК (Java Edition)</div>
+                    <div class="connection-details">I_slav4ik_I.aternos.me</div>
+                    <div class="connection-label">IP адрес сервера</div>
+                    <div class="connection-details" style="margin-top: 12px;">1.21.11</div>
+                    <div class="connection-label">Версия игры</div>
+                </div>
+            </div>
+            
+            <div class="connection-info">
+                <p><strong>Важно:</strong> Убедитесь в правильной версии игры для подключения.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Servak &copy; 2024. Все права защищены.</p>
+            <p>Видео с сервера публикуются первее всего в нашем VK канале</p>
+        </footer>
+    </div>
+
+    <div class="copy-msg" id="copy-msg">IP скопирован!</div>
+
+    <script>
+        // Табы
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Копирование IP
+        document.getElementById('server-ip').addEventListener('click', function() {
+            const ip = this.textContent;
+            navigator.clipboard.writeText(ip).then(() => {
+                const msg = document.getElementById('copy-msg');
+                msg.classList.add('show');
+                setTimeout(() => {
+                    msg.classList.remove('show');
+                }, 2000);
+            });
+        });
+
+        // Функция для раскрытия правил
+        function toggleRule(element) {
+            const details = element.querySelector('.rule-details');
+            const isActive = details.classList.contains('active');
+            
+            document.querySelectorAll('.rule-details').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                details.classList.add('active');
+            }
+        }
+
+        // Предзагрузка изображений для галереи
+        window.addEventListener('load', function() {
+            const images = document.querySelectorAll('.gallery-image');
+            images.forEach(img => {
+                const tempImage = new Image();
+                tempImage.src = img.src;
+            });
+        });
+    </script>
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
